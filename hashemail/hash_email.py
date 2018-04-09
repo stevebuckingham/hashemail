@@ -43,8 +43,9 @@ class HashEmail(object):
         """
         source = self.email.lower()
         initial = sha256(source.encode('utf-8')).hexdigest()
-        interim = (initial[self.section_1_start - 1:(self.section_1_length - (self.section_1_start - 1))]
+        interim = (initial[(self.section_1_start - 1):(self.section_1_start + self.section_1_length - 1)]
                    + initial
-                   + initial[self.section_2_start:(self.section_2_length - (self.section_2_start - 1))]).encode('utf-8')
+                   + initial[(self.section_2_start - 1):(self.section_2_start + self.section_2_length - 1)]).encode(
+            'utf-8')
         final = sha256(interim).hexdigest()
         return final

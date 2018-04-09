@@ -8,7 +8,7 @@ class HashEmailTests(unittest.TestCase):
     def setUp(self):
         self.test_email = "TeSt@eXaMpLe.CoM"
         self.emailhash = HashEmail(self.test_email)
-        self.expectedHash = '149ce4995c9157e7fffb2ad59dbe426f9067bb78f43edd26d5b991b49fbbd1a8'
+        self.expectedHash = 'c641e0b90582e3e7f192f655798f27a625b7e198cf8c153b2f5c2ba3c947c38f'
 
     def test_hashvalue(self):
         self.assertEqual(self.emailhash.hash_value(), self.expectedHash)
